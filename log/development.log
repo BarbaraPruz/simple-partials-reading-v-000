@@ -855,3 +855,20 @@ Processing by PostsController#edit as HTML
   Rendered posts/_form.html.erb (0.3ms)
   Rendered posts/edit.html.erb within layouts/application (3.3ms)
 Completed 200 OK in 61ms (Views: 38.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 98.155.218.104 at 2018-07-29 00:19:19 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered authors/_author.html.erb (4.6ms)
+  Rendered posts/show.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @author.name %>
+    2: <%= @author.hometown %>
+  app/views/authors/_author.html.erb:1:in `_app_views_authors__author_html_erb__1244065735886325531_70224730750720'
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___2770008416934835536_70224730714600'
+
+
